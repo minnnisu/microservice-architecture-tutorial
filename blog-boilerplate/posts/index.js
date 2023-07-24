@@ -1,11 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { randomBytes } = require("crypto");
+const cors = require("cors");
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
-const posts = {}; // 포스트 데이터 저장 공간
+const posts = {};
 
 app.get("/posts", (req, res) => {
   res.send(posts);
